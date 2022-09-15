@@ -29,7 +29,7 @@ function appendNumber(num) {
 }
 
 function setOperand(op) {
-    if (currentOperation !== null) return;
+    if (currentOperation !== null) evaluate();
     firstOperand = currentScreen.textContent;
     currentOperation = op;
     lastScreen.textContent = `${firstOperand} ${currentOperation}`
@@ -47,6 +47,7 @@ function evaluate (e) {
     currentScreen.textContent = roundResult(operation(currentOperation, firstOperand, secondOperand));
     lastScreen.textContent = `${firstOperand} ${currentOperation} ${secondOperand}`
     currentOperation = null;
+    screenClear = true;
 }
 
 function resetScreen () {
