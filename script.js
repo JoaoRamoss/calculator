@@ -1,7 +1,7 @@
-let currentOperation = null;
+let currentOperation = null; //Records the last selected operation button 
 let firstOperand;
 let secondOperand;
-let screenClear = false;
+let screenClear = false; //Tells if it's necessary to clear the screen
 
 
 const numberButtons = document.querySelectorAll('[data-number]');
@@ -17,6 +17,7 @@ const currentScreen = document.getElementById('currentOperation');
 numberButtons.forEach(button => button.addEventListener('click', () => appendNumber(button.textContent)));
 operationButtons.forEach(button => button.addEventListener('click', () => setOperand(button.textContent)))
 equalsBtn.addEventListener('click', evaluate);
+pointBtn.addEventListener('click', appendPoint);
 
 
 
@@ -36,15 +37,30 @@ function setOperand(op) {
 
 
 function evaluate (e) {
+    if (currentOperation == null || screenClear) return;
+    if (currentOperation === '÷' && currentScreen.textContent === '0') {
+        alert("You can't divide by zero!");
+        return;
+    }
     secondOperand = currentScreen.textContent
-    currentScreen.textContent = operation(currentOperation, firstOperand, secondOperand);
+    currentScreen.textContent = roundResult(operation(currentOperation, firstOperand, secondOperand));
     lastScreen.textContent = `${firstOperand} ${currentOperation} ${secondOperand}`
-
+    currentOperation = null;
 }
 
 function resetScreen () {
     currentScreen.textContent = '';
     screenClear = false;
+}
+
+function appendPoint() {
+    if(screenClear) resetScreen();
+    if (currentScreen.textContent.includes('.')) return;
+    currentScreen.textContent += '.';
+}
+
+function roundResult (result) {
+    return Math.round(result * 1000) / 1000;
 }
 
 function add (a, b) {
