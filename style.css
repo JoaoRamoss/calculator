@@ -85,27 +85,27 @@ button {
     background-color: var(--btn-acti);
 }
 
-.clearBtn {
+#clearBtn {
     background-color: var(--btn-clear);
 }
 
-.clearBtn:hover{
+#clearBtn:hover{
     background-color: var(--btn-clear-hover);
 }
 
-.clearBtn:active {
+#clearBtn:active {
     background-color: var(--btn-clear-active);
 }
 
-.deleteBtn {
+#deleteBtn {
     background-color: var(--btn-delete);
 }
 
-.deleteBtn:hover {
+#deleteBtn:hover {
     background-color: var(--btn-delete-hover);
 }
 
-.deleteBtn:active {
+#deleteBtn:active {
     background-color: var(--btn-delete-active);
 }
 
