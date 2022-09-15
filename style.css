@@ -1,0 +1,122 @@
+:root {
+    --btn: #eee;
+    --btn-hover:rgba(221, 221, 221, 0.791);
+    --btn-active: rgba(221, 221, 221, 0.524);
+    --btn-clear: #faa;
+    --btn-clear-hover: #e99;
+    --btn-clear-active: #d88;
+    --btn-delete: rgb(87, 170, 247);
+    --btn-delete-hover: rgb(77, 153, 223);
+    --btn-delete-active: rgb(68, 132, 192);
+}
+
+
+html {
+    font-family: 'roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    gap: 23px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ededed;
+}
+
+h1 {
+    text-align: center;
+}
+
+.calcBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #333333;
+    width: 500px;
+    height: 600px;
+    border-radius: 15px;
+    background-color: lightgrey;
+}
+
+.screen {
+    padding: 10px 20px;
+    margin-top: 45px;
+    border: 1px solid #333333;
+    width: 80%;
+    height: 20%;
+    border-radius: 5px;
+    background-color: #ededed;
+    text-align: right;
+}
+
+
+#lastOperation {
+    min-height: 50px;
+    font-size: 24px;
+    font-weight: 300;
+}
+#currentOperation {
+    font-size: 40px;
+    font-weight: 300;
+}
+
+button {
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+}
+
+.btn {
+    border: 2px solid black;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: var(--btn);
+    font-size: 20px;
+}
+
+.btn:hover{
+    background-color: var(--btn-hover);
+}
+
+.btn:active {
+    background-color: var(--btn-acti);
+}
+
+.clearBtn {
+    background-color: var(--btn-clear);
+}
+
+.clearBtn:hover{
+    background-color: var(--btn-clear-hover);
+}
+
+.clearBtn:active {
+    background-color: var(--btn-clear-active);
+}
+
+.deleteBtn {
+    background-color: var(--btn-delete);
+}
+
+.deleteBtn:hover {
+    background-color: var(--btn-delete-hover);
+}
+
+.deleteBtn:active {
+    background-color: var(--btn-delete-active);
+}
+
+.span2 {
+    grid-column: span 2;
+}
+.buttons {
+    margin: 10px 0px;
+    padding: 0;
+    width: 88%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+}
