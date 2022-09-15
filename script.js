@@ -18,6 +18,7 @@ numberButtons.forEach(button => button.addEventListener('click', () => appendNum
 operationButtons.forEach(button => button.addEventListener('click', () => setOperand(button.textContent)))
 equalsBtn.addEventListener('click', evaluate);
 pointBtn.addEventListener('click', appendPoint);
+clearBtn.addEventListener('click', clearCalculator);
 
 
 
@@ -57,6 +58,16 @@ function appendPoint() {
     if(screenClear) resetScreen();
     if (currentScreen.textContent.includes('.')) return;
     currentScreen.textContent += '.';
+}
+
+function clearCalculator() {
+    currentOperation = null;
+    firstOperand = 0;
+    secondOperand = undefined;
+    screenClear = false;
+    lastScreen.textContent = '';
+    resetScreen();
+    currentScreen.textContent = '0';
 }
 
 function roundResult (result) {
