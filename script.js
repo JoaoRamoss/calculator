@@ -19,15 +19,17 @@ operationButtons.forEach(button => button.addEventListener('click', () => setOpe
 equalsBtn.addEventListener('click', evaluate);
 pointBtn.addEventListener('click', appendPoint);
 clearBtn.addEventListener('click', clearCalculator);
+deleteBtn.addEventListener('click', deleteLast);
 
 
-
+//Adds number to the current screen.
 function appendNumber(num) {
     if (currentScreen.textContent === '0' || screenClear)
         resetScreen();
     currentScreen.textContent += num;
 }
 
+//Sets up the operation. First operand is defined as the content of the current screen.
 function setOperand(op) {
     if (currentOperation !== null) evaluate();
     firstOperand = currentScreen.textContent;
@@ -37,6 +39,7 @@ function setOperand(op) {
 }
 
 
+//Is used when the equals button is pressed. The second operand is defined as the content of the current screen.
 function evaluate (e) {
     if (currentOperation == null || screenClear) return;
     if (currentOperation === '÷' && currentScreen.textContent === '0') {
@@ -50,17 +53,20 @@ function evaluate (e) {
     screenClear = true;
 }
 
+//Resets the current screen.
 function resetScreen () {
     currentScreen.textContent = '';
     screenClear = false;
 }
 
+//Includes a decimal point to the input while making sure it can't be repeated when used.
 function appendPoint() {
     if(screenClear) resetScreen();
     if (currentScreen.textContent.includes('.')) return;
     currentScreen.textContent += '.';
 }
 
+//Clears the calculator. Similar to refreshing the page.
 function clearCalculator() {
     currentOperation = null;
     firstOperand = 0;
@@ -71,6 +77,12 @@ function clearCalculator() {
     currentScreen.textContent = '0';
 }
 
+//Deletes last element of a string
+function deleteLast() {
+    currentScreen.textContent = currentScreen.textContent.slice(0, -1);
+}
+
+//Rounds the result to the point where it's only allowed to have 3 decimals.
 function roundResult (result) {
     return Math.round(result * 1000) / 1000;
 }
@@ -91,6 +103,7 @@ function divide(a,b) {
     return a/b;
 }
 
+//Handles the operation.
 function operation(op, a, b) {
     a = Number(a);
     b = Number(b);
