@@ -11,6 +11,9 @@
 }
 
 
+* {
+    box-sizing: border-box;
+  }
 html {
     font-family: 'roboto', sans-serif;
 }
@@ -43,7 +46,7 @@ h1 {
     padding: 10px 20px;
     margin-top: 45px;
     border: 1px solid #333333;
-    width: 80%;
+    width: 88%;
     height: 20%;
     border-radius: 5px;
     background-color: #ededed;
@@ -119,4 +122,31 @@ button {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(4, 1fr);
+}
+
+/*Should work with most phones*/
+@media(max-width: 500px) {
+    .screen{
+        padding: 5px 10px;
+        margin-top: 20px;
+        height: 70px;
+        width: 307px;
+    }
+    .calcBody {
+        width:350px;
+        height: 450px;
+    }
+    #lastOperation{
+        min-height: 25px;
+        font-size: 20px;
+    }
+
+    #currentOperation {
+        min-height: 15px;
+        font-size: 27px;
+    }
+
+    .btn {
+        padding: 15px;
+    }
 }
