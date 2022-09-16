@@ -80,7 +80,10 @@ function clearCalculator() {
 
 //Deletes last element of a string
 function deleteLast() {
-    currentScreen.textContent = currentScreen.textContent.slice(0, -1);
+    if (currentScreen.textContent !== '0')
+        currentScreen.textContent = currentScreen.textContent.slice(0, -1);
+    if (currentScreen.textContent === '') 
+        currentScreen.textContent = '0';
 }
 
 function keyboardHandler(e) {
