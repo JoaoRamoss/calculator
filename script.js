@@ -21,6 +21,7 @@ pointBtn.addEventListener('click', appendPoint);
 clearBtn.addEventListener('click', clearCalculator);
 deleteBtn.addEventListener('click', deleteLast);
 
+window.addEventListener('keydown', keyboardHandler);
 
 //Adds number to the current screen.
 function appendNumber(num) {
@@ -80,6 +81,46 @@ function clearCalculator() {
 //Deletes last element of a string
 function deleteLast() {
     currentScreen.textContent = currentScreen.textContent.slice(0, -1);
+}
+
+function keyboardHandler(e) {
+    if (e.key >= 0 && e.key <= 9) appendNumber(e.key); 
+    else switch(e.key) {
+        case 'Escape':
+            clearCalculator();
+            break;
+        case 'Backspace':
+            deleteLast();
+            break;
+        case '=':
+            evaluate();
+            break;
+        case 'Enter':
+            evaluate();
+            break;
+        case '.':
+            appendPoint();
+            break;
+        default:
+            break;
+    }
+    if (e.key === '+' || e.key === '*' || e.key === '/' || e.key === '-')
+        setOperand(convertOperation(e.key)); 
+}
+
+function convertOperation(e) {
+    switch (e) {
+        case '+':
+            return '+';
+        case '-':
+            return '-';
+        case '*':
+            return 'x';
+        case '/':
+            return '÷';
+        default:
+            return null;
+    }
 }
 
 //Rounds the result to the point where it's only allowed to have 3 decimals.
