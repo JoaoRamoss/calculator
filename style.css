@@ -124,6 +124,42 @@ button {
     grid-template-columns: repeat(4, 1fr);
 }
 
+
+footer {
+    font-weight: 300;
+}
+
+.wrapper {
+    padding: 5px 15px;
+    background-color: lightgrey;
+    border: 2px solid #333;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-items: center;
+    border-radius: 5px;
+    cursor:pointer;
+    transition-duration: 70ms;
+    cursor: pointer;
+    transition-timing-function: ease-in-out;
+    padding-left: 23px;
+}
+
+.wrapper:hover {
+    scale: 1.1;
+}
+
+.ghub {
+    margin: 0;
+    scale: 0.6;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
 /*Should work with most phones*/
 @media(max-width: 500px) {
     .screen{
