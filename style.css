@@ -138,7 +138,6 @@ footer {
     align-items: center;
     justify-items: center;
     border-radius: 5px;
-    cursor:pointer;
     transition-duration: 70ms;
     cursor: pointer;
     transition-timing-function: ease-in-out;
